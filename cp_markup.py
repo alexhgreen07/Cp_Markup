@@ -18,6 +18,10 @@ if __name__ == "__main__":
 	print ""
 
 	print "Creating lexicon"
+	print ""
+	
+	#create the master program object
+	cp_program_object = Cp_Program("test_program")
 	
 	filename = "test_file.cp"
 	
@@ -35,12 +39,22 @@ if __name__ == "__main__":
 		print ""
 	
 		while True:
-	
-	    		token = scanner.read()
+			
+			#attempt to read the next token
+			try:
+			
+	    			token = scanner.read()
+	    			
+	    		except Exception as exc:
 	    		
+	    			print "Parsing error: '%s'" % exc
+	    			break
+	    		
+	    		#print the token
 	    		print token
 	    		sys.stdout.flush()
 	    		
+	    		#if the reader is at the end of file
 	    		if token[0] is None:
 	    		
 				break
@@ -55,8 +69,14 @@ if __name__ == "__main__":
 			
 				files_to_scan.append(import_path)
 		
+		#track the files that have been scanned
 		files_scanned.append(files_to_scan[0])
 		files_to_scan.remove(files_to_scan[0])
+		
+		del f
+		del scanner
+		
+		print ""
 
 	
 	elapsed = (time.time() - run_time_start)
@@ -72,7 +92,7 @@ if __name__ == "__main__":
 	print ""
 	
 	print "import*************"
-	for path in scanner.import_file_list:
+	for path in files_scanned:
 		
 		print "import '%s'" % path
 	
