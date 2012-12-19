@@ -29,8 +29,6 @@ def Advance_To_Namespace_Name(scanner,text):
 
 def Namespace_Definition_Start(scanner,text):
 	
-	print "Namespace keyword found."
-	
 	previous_state = scanner.state_name
 	
 	scanner.begin("namespace_scope_state_space_start")

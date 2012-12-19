@@ -16,8 +16,6 @@ previous_state = ""
 
 def Using_Definition_Start(scanner,text):
 	
-	print "Using keyword found."
-	
 	global previous_state
 	previous_state = scanner.state_name
 	
@@ -30,8 +28,6 @@ def Using_Definition_Name(scanner,text):
 	scanner.begin("using_scope_state_terminator")
 
 def Using_Definition_Complete(scanner,text):
-	
-	print "Using statement complete."
 	
 	global previous_state
 	

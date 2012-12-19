@@ -21,17 +21,11 @@ def Advance_To_Function_Name(scanner,text):
 	
 	scanner.begin("function_scope_state_parameters_start")
 
-def Advance_To_Function_Params(scanner,text):
-	
-	print "Advancing to parameter list"
-	
-	scanner.begin("function_scope_state_parameters_start")
-
 def Function_Definition_Start(scanner,text):
 	
 	global previous_state
 	
-	print "Function found: '%s'" % text
+	#print "Function found: '%s'" % text
 	
 	previous_state = scanner.state_name
 	

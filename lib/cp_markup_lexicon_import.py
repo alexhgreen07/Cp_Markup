@@ -16,8 +16,6 @@ previous_state = ""
 
 def Advance_To_Import_Name(scanner,text):
 	
-	print "Detected import string start"
-	
 	scanner.begin("import_scope_state_filepath")
 
 def Store_Filepath(scanner,text):
@@ -28,21 +26,15 @@ def Store_Filepath(scanner,text):
 
 def Advance_To_Terminator_State(scanner,text):
 	
-	print "Detected import string end"
-	
 	scanner.begin("import_scope_state_terminator")
 
 def Import_Definition_Complete(scanner,text):
-	
-	print "Import definition complete."
 	
 	global previous_state
 	
 	scanner.begin(previous_state)
 
 def Import_Definition_Start(scanner,text):
-	
-	print "Import keyword found."
 	
 	global previous_state
 	previous_state = scanner.state_name

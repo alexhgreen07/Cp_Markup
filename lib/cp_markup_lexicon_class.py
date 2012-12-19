@@ -25,18 +25,10 @@ def Advance_To_Class_Name(scanner,text):
 	
 	scanner.begin("class_scope_state_parameters_start")
 
-def Advance_To_Class_Params(scanner,text):
-	
-	print "Advancing to parameter list"
-	
-	scanner.begin("class_scope_state_parameters_start")
-
 def Class_Definition_Start(scanner,text):
 	
 	global previous_state
-	
-	print "Class keyword found."
-	
+
 	previous_state = scanner.state_name
 	
 	scanner.begin("class_scope_state_space_start")
