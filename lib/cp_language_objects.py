@@ -1,7 +1,12 @@
+## @package cp_language_objects
+# @brief This file contains all objects to store the 
+# parsed language objects in.
+
 import sys
 import os
 
-#C+ class method storage
+## @brief This stores the method data, including parameters 
+# and identifiers.
 class Cp_Method:
 	
 	def __init__(self, init_name = ""):

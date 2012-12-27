@@ -20,7 +20,7 @@ current_path, current_file = os.path.split(os.path.abspath(__file__))
 def main():
 	
 	
-    	run_time_start = time.time()
+	run_time_start = time.time()
 	
     
 	print "Start plex test"
@@ -29,7 +29,8 @@ def main():
 	print "Creating lexicon"
 	print ""
 	
-	#create the master program object
+	#create the master program object which will store all
+	#the application objects.
 	cp_program_object = Cp_Program("test_program")
 	
 	filename = current_path + "/test_code/test_file.cp"
@@ -53,6 +54,7 @@ def main():
 			
 			#attempt to read the next token
 			try:
+			
 			
 	    			token = scanner.read()
 	    			
