@@ -5,7 +5,7 @@ import time
 import cp_language_objects
 
 current_path, current_file = os.path.split(os.path.abspath(__file__))
-sys.path.append(current_path + "/../plex-2.0.0dev/src")
+sys.path.append(current_path + "/plex-2.0.0dev/src")
 
 import plex
 from plex import *

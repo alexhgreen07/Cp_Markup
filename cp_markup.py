@@ -1,3 +1,7 @@
+## @package cp_markup
+# @brief This file is the main file to execute when translating
+# C+ code to to C code. 
+
 import sys
 import os
 import time
@@ -8,9 +12,14 @@ sys.path.append(current_path + "/lib")
 import cp_markup_lib
 from cp_markup_lib import *
 
+current_path, current_file = os.path.split(os.path.abspath(__file__))
 
-if __name__ == "__main__":
-    
+## @brief This is the main function for the translator.
+# It will parse through a file, output the parsed
+# elements, and generate the appropriate .h and .c files.
+def main():
+	
+	
     	run_time_start = time.time()
 	
     
@@ -23,7 +32,7 @@ if __name__ == "__main__":
 	#create the master program object
 	cp_program_object = Cp_Program("test_program")
 	
-	filename = "test_file.cp"
+	filename = current_path + "/test_code/test_file.cp"
 	
 	scanned_file_count = 0
 	files_to_scan = [filename]
@@ -31,11 +40,13 @@ if __name__ == "__main__":
 	
 	while len(files_to_scan) > 0:
 	
+		
+		current_scanned_filepath = files_to_scan[0]
+		
+		f = open(current_scanned_filepath, "r")
+		scanner = CpScanner(f, current_scanned_filepath)
 	
-		f = open(files_to_scan[0], "r")
-		scanner = CpScanner(f, files_to_scan[0])
-	
-		print "Parsing '" + files_to_scan[0] + "'"
+		print "Parsing '" + current_scanned_filepath + "'"
 		print ""
 	
 		while True:
@@ -59,19 +70,22 @@ if __name__ == "__main__":
 	    		
 				break
 		
+		
 		#add all new paths found to import
 		for import_path in scanner.import_file_list:
+			
+			scanned_file_path, scanned_file = os.path.split(os.path.abspath(current_scanned_filepath))
 			
 			#if it has not already been scanned
 			if not import_path in files_scanned:
 			
-				print "Found new path to import '%s'" % import_path
+				print "Found new path to import '%s'" % (scanned_file_path + "/" + import_path)
 			
-				files_to_scan.append(import_path)
+				files_to_scan.append(scanned_file_path + "/" + import_path)
 		
 		#track the files that have been scanned
-		files_scanned.append(files_to_scan[0])
-		files_to_scan.remove(files_to_scan[0])
+		files_scanned.append(current_scanned_filepath)
+		files_to_scan.remove(current_scanned_filepath)
 		
 		del f
 		del scanner
@@ -100,3 +114,8 @@ if __name__ == "__main__":
 	
 	print ""
 	print "Ending plex test"
+
+if __name__ == "__main__":
+	
+	main()
+    	
