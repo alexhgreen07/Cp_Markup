@@ -62,7 +62,7 @@ class Cp_Program:
 		
 		self.name = init_name
 		
-		self.imports = {}
+		self.files = {}
 		self.namespaces = {}
 		self.classes = {}
 		self.enums = {}

@@ -39,6 +39,7 @@ def main():
 	files_to_scan = [filename]
 	files_scanned = []
 	
+	#loop until all file scanning is complete
 	while len(files_to_scan) > 0:
 	
 		
@@ -88,6 +89,9 @@ def main():
 		#track the files that have been scanned
 		files_scanned.append(current_scanned_filepath)
 		files_to_scan.remove(current_scanned_filepath)
+		
+		#add the file to the program object
+		cp_program_object.files[current_scanned_filepath] = scanner.current_cp_file
 		
 		del f
 		del scanner
