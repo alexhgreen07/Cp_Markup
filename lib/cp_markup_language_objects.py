@@ -41,7 +41,7 @@ class Cp_Namespace:
 		self.functions = {}
 
 #C+ import
-class Cp_Import:
+class Cp_File:
 	
 	def __init__(self, init_name = "", path = ""):
 		

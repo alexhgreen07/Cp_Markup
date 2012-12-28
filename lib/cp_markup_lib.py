@@ -117,8 +117,7 @@ class CpScanner(Scanner):
 		
 		#define the object lists
 		self.import_file_list = []
-		self.namespace_dictionary = {}
-		self.class_dictionary = {}
+		self.current_cp_file = Cp_File()
 		
 		#define the current scope variables
 		self.using_namespace_dictionary = {}

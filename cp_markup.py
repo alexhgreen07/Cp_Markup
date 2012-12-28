@@ -46,7 +46,7 @@ def main():
 		
 		f = open(current_scanned_filepath, "r")
 		scanner = CpScanner(f, current_scanned_filepath)
-	
+		
 		print "Parsing '" + current_scanned_filepath + "'"
 		print ""
 	
@@ -56,20 +56,20 @@ def main():
 			try:
 			
 			
-	    			token = scanner.read()
-	    			
-	    		except Exception as exc:
-	    		
-	    			print "Parsing error: '%s'" % exc
-	    			break
-	    		
-	    		#print the token
-	    		print token
-	    		sys.stdout.flush()
-	    		
-	    		#if the reader is at the end of file
-	    		if token[0] is None:
-	    		
+					token = scanner.read()
+					
+			except Exception as exc:
+			
+				print "Parsing error: '%s'" % exc
+				break
+			
+			#print the token
+			print token
+			sys.stdout.flush()
+			
+			#if the reader is at the end of file
+			if token[0] is None:
+			
 				break
 		
 		
