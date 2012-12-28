@@ -17,8 +17,8 @@ import cp_markup_lexicon_function
 import cp_markup_lexicon_variable
 
 #import the storage objects for the C+ elements
-import cp_language_objects
-from cp_language_objects import *
+import cp_markup_language_objects
+from cp_markup_language_objects import *
 
 current_path, current_file = os.path.split(os.path.abspath(__file__))
 sys.path.append(current_path + "/plex-2.0.0dev/src")
