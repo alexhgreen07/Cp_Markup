@@ -1,4 +1,4 @@
-## @package cp_language_objects
+## @package cp_markup_language_objects
 # @brief This file contains all objects to store the 
 # parsed language objects in.
 
