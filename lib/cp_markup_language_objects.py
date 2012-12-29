@@ -5,8 +5,7 @@
 import sys
 import os
 
-## @brief This stores the method data, including parameters 
-# and identifiers.
+## @brief This stores the C+ method/function data and identifiers.
 class Cp_Method:
 	
 	def __init__(self, init_name = ""):
@@ -17,7 +16,7 @@ class Cp_Method:
 		self.is_static = False
 		self.method_body = ""
 
-#C+ class storage
+## @brief This stores the C+ class data and identifiers.
 class Cp_Class:
 	
 	def __init__(self, init_name = ""):
@@ -28,19 +27,20 @@ class Cp_Class:
 		self.members = {}
 		self.methods = {}
 
-#C+ namespace storage
+## @brief This stores the C+ namespace data and identifiers.
 class Cp_Namespace:
 	
 	def __init__(self, init_name = ""):
 		
 		self.name = init_name
+		self.namespaces = {}
 		self.classes = {}
 		self.enums = {}
 		self.structs = {}
 		self.variables = {}
 		self.functions = {}
 
-#C+ import
+## @brief This stores the C+ file data and identifiers.
 class Cp_File:
 	
 	def __init__(self, init_name = "", path = ""):
@@ -56,6 +56,7 @@ class Cp_File:
 		self.variables = {}
 		self.functions = {}
 
+## @brief This stores the C+ prorgram data and identifiers.
 class Cp_Program:
 	
 	def __init__(self,init_name = ""):

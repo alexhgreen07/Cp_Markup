@@ -3,7 +3,7 @@ import "OS.cp";
 using stdio;
 using OS::Memory;
 
-namespace OS
+namespace OS::String
 {
     //class definition using stack based parameters
     class String(unsigned int buffer_length)
