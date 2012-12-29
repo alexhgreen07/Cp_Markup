@@ -61,6 +61,7 @@ def main():
 					
 			except Exception as exc:
 			
+				#catch the scanner exception. This was a parsing error!
 				print "Parsing error: '%s'" % exc
 				break
 			
@@ -68,7 +69,7 @@ def main():
 			print token
 			sys.stdout.flush()
 			
-			#if the reader is at the end of file
+			#if the reader is at the end of file, exit the loop
 			if token[0] is None:
 			
 				break
@@ -79,7 +80,7 @@ def main():
 			
 			scanned_file_path, scanned_file = os.path.split(os.path.abspath(current_scanned_filepath))
 			
-			#if it has not already been scanned
+			#if the file has not already been scanned
 			if not import_path in files_scanned:
 			
 				print "Found new path to import '%s'" % (scanned_file_path + "/" + import_path)
@@ -90,7 +91,7 @@ def main():
 		files_scanned.append(current_scanned_filepath)
 		files_to_scan.remove(current_scanned_filepath)
 		
-		#add the file to the program object
+		#add the file to the program objects files dictionary
 		cp_program_object.files[current_scanned_filepath] = scanner.current_cp_file
 		
 		del f

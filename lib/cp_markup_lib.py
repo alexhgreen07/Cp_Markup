@@ -1,3 +1,7 @@
+## @package cp_markup_lib
+# @brief This file contains the Plex C+ scanner class used for parsing the 
+# C+ code files.
+
 import sys
 import os
 import time
