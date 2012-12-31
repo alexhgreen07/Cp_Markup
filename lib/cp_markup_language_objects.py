@@ -49,6 +49,7 @@ class Cp_File:
 		self.path = ""
 		self.is_library = False
 		
+		self.using_names = []
 		self.namespaces = {}
 		self.classes = {}
 		self.enums = {}
@@ -63,10 +64,15 @@ class Cp_Program:
 		
 		self.name = init_name
 		
+		## @brief This is a dictionary of Cp_File objects in the program. The key is the filename.
 		self.files = {}
+		## @brief This is a dictionary of Cp_Namespace objects in the program. The key is the namespace name.
 		self.namespaces = {}
+		## @brief This is a dictionary of Cp_Class objects in the program. The key is the class name.
 		self.classes = {}
+		## @brief This is a dictionary of Cp_Method objects in the program. The key is the function/method name.
+		self.functions = {}
+		
 		self.enums = {}
 		self.structs = {}
 		self.variables = {}
-		self.functions = {}

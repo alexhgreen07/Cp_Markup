@@ -31,6 +31,9 @@ def Using_Definition_Name(scanner,text):
 	
 	print "Using namespace '%s'" % text
 	
+	#add the using definition to the list for the current file
+	scanner.current_cp_file.using_names.append(text)
+	
 	scanner.begin("using_scope_state_terminator")
 
 ## @brief This function is triggered when the using statement is complete.
