@@ -45,17 +45,25 @@ class Cp_File:
 	
 	def __init__(self, init_name = "", path = ""):
 		
+		## @brief This is a string containing the filename.
 		self.name = init_name
+		## @brief This is a string containing the file path.
 		self.path = ""
+		## @brief This is a boolean value of whether this is a library file or not. (Unused at the moment)
 		self.is_library = False
 		
+		## @brief This list stores the names of the namespaces being used (including delimiters)
 		self.using_names = []
+		## @brief This is a dictionary of Cp_Namespace objects in the file. The key is the namespace name.
 		self.namespaces = {}
+		## @brief This is a dictionary of Cp_Class objects define in the file. The key is the class name.
 		self.classes = {}
+		## @brief This is a dictionary of Cp_Method objects in the file. The key is the method name.
+		self.functions = {}
+		
 		self.enums = {}
 		self.structs = {}
 		self.variables = {}
-		self.functions = {}
 
 ## @brief This stores the C+ prorgram data and identifiers.
 class Cp_Program:
